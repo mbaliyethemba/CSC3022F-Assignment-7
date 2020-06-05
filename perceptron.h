@@ -13,5 +13,6 @@ class perceptron{
 		
 	public:
 		perceptron();
+		~perceptron();
 };
 #endif
