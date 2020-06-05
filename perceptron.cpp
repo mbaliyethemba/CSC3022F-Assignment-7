@@ -3,3 +3,7 @@
 //Constructor
 perceptron::perceptron(){
 }
+
+//Destructor
+perceptron::~perceptron(){
+}
