@@ -15,5 +15,6 @@ class perceptron{
 		perceptron();
 		~perceptron();
 		void set_input(std::vector<std::vector<int>>);
+		void set_target(std::vector<int>);
 };
 #endif
