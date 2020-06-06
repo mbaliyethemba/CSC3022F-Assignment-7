@@ -22,3 +22,8 @@ void perceptron::set_target(std::vector<int> v){
 void perceptron::set_learning_rate(double d){
 	this->learning_rate = d;
 }
+
+//set the weights
+void perceptron::set_weight(std::vector<int> v){
+	this->weights = v;
+}
