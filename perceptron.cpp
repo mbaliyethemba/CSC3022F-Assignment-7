@@ -17,3 +17,8 @@ void perceptron::set_input(std::vector<std::vector<int>> v){
 void perceptron::set_target(std::vector<int> v){
 	this->target = v;
 }
+
+//set learning rate
+void perceptron::set_learning_rate(double d){
+	this->learning_rate = d;
+}
