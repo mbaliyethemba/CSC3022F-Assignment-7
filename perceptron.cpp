@@ -27,3 +27,14 @@ void perceptron::set_learning_rate(double d){
 void perceptron::set_weight(std::vector<int> v){
 	this->weights = v;
 }
+
+//find the product sum for threshold
+double perceptron::product_sum(){
+	double product_sum;
+	for(size_t i = 0; i < this->weights.size() ; i++){
+		for(size_t j = 0; j < this->input[i].size(); j++){
+			product_sum += this->weights[i] * this->input[i][j];
+		}
+	}
+	return product_sum;
+}
