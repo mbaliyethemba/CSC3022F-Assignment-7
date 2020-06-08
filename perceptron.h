@@ -20,5 +20,6 @@ class perceptron{
 		void set_target(std::vector<int>);
 		void set_learning_rate(double);
 		void set_weight(std::vector<int>);
+		double product_sum();
 };
 #endif
