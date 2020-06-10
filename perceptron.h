@@ -11,7 +11,9 @@ class perceptron{
 		std::vector<std::vector<int>> input;
 		std::vector<int> target;
 		std::vector<int> weights;
+		std::vector<double> product;
 		double learning_rate;
+		std::vector<int> output;
 		
 	public:
 		perceptron();
@@ -20,7 +22,7 @@ class perceptron{
 		void set_target(std::vector<int>);
 		void set_learning_rate(double);
 		void set_weight(std::vector<int>);
-		double product_sum();
+		void product_sum();
 		void activation_function();
 };
 #endif
