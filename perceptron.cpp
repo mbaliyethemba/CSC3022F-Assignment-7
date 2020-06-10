@@ -29,23 +29,29 @@ void perceptron::set_weight(std::vector<int> v){
 }
 
 //find the product sum for threshold
-double perceptron::product_sum(){
+void perceptron::product_sum(){
 	double product_sum;
-	for(size_t i = 0; i < this->weights.size() ; i++){
-		for(size_t j = 0; j < 4; j++){
-			product_sum += this->weights[i] * this->input[j][i];
+	for(size_t i = 0; i < 4 ; i++){
+		for(size_t j = 0; j < this->weights.size(); j++){
+			product_sum += this->weights[j] * this->input[i][j];
 		}
+		product.push_back(product_sum);
 	}
-	return product_sum;
 }
 
 //activation function
 void perceptron::activation_function(){
-	double p = this->product_sum();
-	if(0.0 <= p || p >= 2.0){
-		this->output = 0;
-	}
-	else{
-		this->output = 1;
+	this->product_sum();
+	int num;
+	for(size_t i = 0; i < product.size() ; i++){
+		if(0.0 <= product[i] || product[i] >= 2.0){
+			num = 0;
+			this->output.push_back(num);
+			
+		}
+		else{
+			num = 1;
+			this->output.push_back(num);
+		}
 	}
 }
