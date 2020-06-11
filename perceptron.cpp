@@ -55,3 +55,10 @@ void perceptron::activation_function(){
 		}
 	}
 }
+
+void perceptron::perceptron_rule(){
+	this->activation_function();
+	for(size_t i = 0; i < this->weights.size(); i++){
+		this->weights[i] = this->weights[i] + this->learning_rate*(this->target[i] - this->output[i])*this->weights[i];
+	}
+}
