@@ -62,3 +62,17 @@ void perceptron::perceptron_rule(){
 		this->weights[i] = this->weights[i] + this->learning_rate*(this->target[i] - this->output[i])*this->weights[i];
 	}
 }
+
+void perceptron::to_string(){
+	std::cout << "Target :" << std::endl;
+	for(size_t i = 0; i < 3; i++){
+		std::cout << this->target[i] << " ";
+	}
+	std::cout << this->target[3] << std::endl;
+	
+	std::cout << "Output :" << std::endl;
+	for(size_t i = 0; i < 3; i++){
+		std::cout << this->output[i] << " ";
+	}
+	std::cout << this->output[3] << std::endl;
+}
