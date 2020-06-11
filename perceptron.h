@@ -25,5 +25,6 @@ class perceptron{
 		void product_sum();
 		void activation_function();
 		void perceptron_rule();
+		void to_string();
 };
 #endif
