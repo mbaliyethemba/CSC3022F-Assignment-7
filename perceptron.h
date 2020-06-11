@@ -24,5 +24,6 @@ class perceptron{
 		void set_weight(std::vector<int>);
 		void product_sum();
 		void activation_function();
+		void perceptron_rule();
 };
 #endif
