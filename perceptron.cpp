@@ -32,10 +32,12 @@ void perceptron::set_weight(std::vector<int> v){
 void perceptron::product_sum(){
 	double product_sum;
 	for(size_t i = 0; i < 4 ; i++){
-		for(size_t j = 0; j < this->weights.size(); j++){
-			product_sum += this->weights[j] * this->input[i][j];
-		}
+		product_sum = this->weights[0] * this->input[i][0] + this->weights[1] * this->input[i][1];
 		product.push_back(product_sum);
+		product_sum = 0.0;
+	}
+	for(size_t q = 0; q < this->product.size(); q++){
+		std::cout << product[q] << std::endl;
 	}
 }
 
@@ -44,7 +46,7 @@ void perceptron::activation_function(){
 	this->product_sum();
 	int num;
 	for(size_t i = 0; i < product.size() ; i++){
-		if(0.0 <= product[i] || product[i] >= 2.0){
+		if(product[i] <= 0 || product[i] >= 2.0){
 			num = 0;
 			this->output.push_back(num);
 			
