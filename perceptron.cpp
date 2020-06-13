@@ -61,7 +61,9 @@ void perceptron::activation_function(){
 void perceptron::perceptron_rule(){
 	this->activation_function();
 	for(size_t i = 0; i < this->weights.size(); i++){
-		this->weights[i] = this->weights[i] + this->learning_rate*(this->target[i] - this->output[i])*this->weights[i];
+		for(size_t j = 0; j < 4; j++){
+			this->weights[i] = this->weights[i] + this->learning_rate*(this->target[j] - this->output[j]) * this->input[i][j];
+			}
 	}
 }
 
@@ -77,4 +79,18 @@ void perceptron::to_string(){
 		std::cout << this->output[i] << " ";
 	}
 	std::cout << this->output[3] << std::endl;
+	
+	std::cout << "Weights :" << std::endl;
+	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
+}
+
+//function to find the error
+void perceptron::find_error(){
+	if(this->target == this->output){
+		this->to_string();
+	}
+	else{
+		this->perceptron_rule();
+		this->find_error();
+	}
 }
