@@ -26,5 +26,6 @@ class perceptron{
 		void activation_function();
 		void perceptron_rule();
 		void to_string();
+		void find_error();
 };
 #endif
