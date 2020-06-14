@@ -69,14 +69,25 @@ void ann::set_hidden_bias(double d){
 	this->b = d;
 }
 
+//find hidden product sum
+double ann::hidden_product_sum(){
+	double hps = 0.0;
+	for(size_t h = 0; h < 2; h++){
+		hps += this->outputs[h] * this->hidden_weights[h];
+	}
+	hps = hps - b;
+	this->hidden_sum = hps;
+	return hps;
+}
+
 //print to file
 void ann::to_file(){
 	std::ofstream outfile;
 	outfile.open("part2_answers.txt");
 	if(outfile.is_open()){
 		outfile << "Question 3:" << std::endl;
-		for(size_t g = 0 ; g < outputs.size(); g++){
-			outfile << "neuron output " << g+1 << " : " << outputs[g] << std::endl;
+		for(size_t g = 0 ; g < this->outputs.size(); g++){
+			outfile << "neuron output " << g+1 << " : " << this->outputs[g] << std::endl;
 		}
 		outfile << "**********************" << std::endl;
 	}
