@@ -9,7 +9,7 @@
 class ann{
 	private:
 		std::vector<double> nodes, bias;
-		double y, b, hidden_sum;
+		double y, b, hidden_sum, hidden_output;
 		std::vector<std::vector<double>> weights;
 		std::vector<double> product_sum, outputs, hidden_weights;
 		
@@ -27,6 +27,7 @@ class ann{
 		void set_hidden_weights(std::vector<double>);
 		void set_hidden_bias(double);
 		double hidden_product_sum();
+		void get_hidden_output();
 };
 
 #endif
