@@ -22,3 +22,8 @@ void ann::set_target(double y){
 void ann::set_bias(std::vector<double> v){
 	this->bias = v;
 }
+
+//set the weights connecting input to hidden layer nodes
+void ann::set_weights(std::vector<std::vector<double>> v){
+	this->weights = v;
+}
