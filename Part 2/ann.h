@@ -1,8 +1,5 @@
 #include <vector>
 #include <iostream>
-#include <stdlib.h>
-#include <random>
-#include <chrono>
 
 #ifndef ANN_H
 #define ANN_H
@@ -12,6 +9,7 @@ class ann{
 		std::vector<double> nodes, bias;
 		double y;
 		std::vector<std::vector<double>> weights;
+		std::vector<double> product_sum;
 		
 	public:
 		ann();
@@ -20,6 +18,7 @@ class ann{
 		void set_target(double);
 		void set_bias(std::vector<double>);
 		void set_weights(std::vector<std::vector<double>>);
+		void find_product_sum();
 		
 };
 
