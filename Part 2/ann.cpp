@@ -59,6 +59,11 @@ void ann::get_output(){
 	std::cout << outputs[1] << std::endl;
 }
 
+//set hidden weights
+void ann::set_hidden_weights(std::vector<double> v){
+	this->hidden_weights = v;
+}
+
 //print to file
 void ann::to_file(){
 	std::ofstream outfile;
@@ -66,7 +71,8 @@ void ann::to_file(){
 	if(outfile.is_open()){
 		outfile << "Question 3:" << std::endl;
 		for(size_t g = 0 ; g < outputs.size(); g++){
-			outfile << "neuron output" << g+1 << " : " << outputs[g] << std::endl;
+			outfile << "neuron output " << g+1 << " : " << outputs[g] << std::endl;
 		}
+		outfile << "**********************" << std::endl;
 	}
 }
