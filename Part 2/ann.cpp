@@ -48,3 +48,13 @@ void ann::find_product_sum(){
 double ann::signoid(double d){
 	return (1/(1+exp(d*(-1))));
 }
+
+//find the output
+void ann::get_output(){
+	for(size_t f = 0; f < 2; f++){
+		outputs.push_back(this->signoid(product_sum[f]));
+	}
+	
+	std::cout << outputs[0] << std::endl;
+	std::cout << outputs[1] << std::endl;
+}
