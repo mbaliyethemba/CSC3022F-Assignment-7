@@ -14,6 +14,7 @@ class ann{
 	public:
 		ann();
 		~ann();
+		void set_input(std::vector<double>);
 };
 
 #endif
