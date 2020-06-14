@@ -22,6 +22,7 @@ class ann{
 		void find_product_sum();
 		double signoid(double);
 		void get_output();
+		void to_file();
 };
 
 #endif
