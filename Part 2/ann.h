@@ -9,8 +9,9 @@
 
 class ann{
 	private:
-		std::vector<double> nodes;
+		std::vector<double> nodes, bias;
 		double y;
+		std::vector<std::vector<double>> weights;
 		
 	public:
 		ann();
@@ -18,6 +19,8 @@ class ann{
 		void set_nodes(std::vector<double>);
 		void set_target(double);
 		void set_bias(std::vector<double>);
+		void set_weights(std::vector<std::vector<double>>);
+		
 };
 
 #endif
