@@ -80,6 +80,13 @@ double ann::hidden_product_sum(){
 	return hps;
 }
 
+//find the output
+void ann::get_hidden_output(){
+	hidden_output = this->signoid(this->hidden_product_sum());
+	std::cout << "Question 2" << std::endl;
+	std::cout << hidden_output << std::endl;
+}
+
 //print to file
 void ann::to_file(){
 	std::ofstream outfile;
