@@ -64,6 +64,11 @@ void ann::set_hidden_weights(std::vector<double> v){
 	this->hidden_weights = v;
 }
 
+//set hidden bias
+void ann::set_hidden_bias(double d){
+	this->b = d;
+}
+
 //print to file
 void ann::to_file(){
 	std::ofstream outfile;
