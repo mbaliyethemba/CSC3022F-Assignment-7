@@ -8,6 +8,12 @@
 #define ANN_H
 
 class ann{
+	private:
+		std::vector<double> inputs;
+		
+	public:
+		ann();
+		~ann();
 };
 
 #endif
