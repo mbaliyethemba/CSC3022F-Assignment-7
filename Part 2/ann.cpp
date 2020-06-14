@@ -54,7 +54,19 @@ void ann::get_output(){
 	for(size_t f = 0; f < 2; f++){
 		outputs.push_back(this->signoid(product_sum[f]));
 	}
-	
+	std::cout << "Question 1" << std::endl;
 	std::cout << outputs[0] << std::endl;
 	std::cout << outputs[1] << std::endl;
+}
+
+//print to file
+void ann::to_file(){
+	std::ofstream outfile;
+	outfile.open("part2_answers.txt");
+	if(outfile.is_open()){
+		outfile << "Question 3:" << std::endl;
+		for(size_t g = 0 ; g < outputs.size(); g++){
+			outfile << "neuron output" << g+1 << " : " << outputs[g] << std::endl;
+		}
+	}
 }
