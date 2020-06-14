@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <math.h>
+#include <fstream>
 
 #ifndef ANN_H
 #define ANN_H
@@ -10,7 +11,7 @@ class ann{
 		std::vector<double> nodes, bias;
 		double y;
 		std::vector<std::vector<double>> weights;
-		std::vector<double> product_sum, outputs;
+		std::vector<double> product_sum, outputs, hidden_weights;
 		
 	public:
 		ann();
@@ -23,6 +24,7 @@ class ann{
 		double signoid(double);
 		void get_output();
 		void to_file();
+		void set_hidden_weights(std::vector<double>);
 };
 
 #endif
