@@ -20,7 +20,8 @@ class ann{
 		void set_bias(std::vector<double>);
 		void set_weights(std::vector<std::vector<double>>);
 		void find_product_sum();
-		double signoid(double);	
+		double signoid(double);
+		void get_output();
 };
 
 #endif
