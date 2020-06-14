@@ -17,3 +17,8 @@ void ann::set_nodes(std::vector<double> x){
 void ann::set_target(double y){
 	this->y = y;
 }
+
+//set the bias
+void ann::set_bias(std::vector<double> v){
+	this->bias = v;
+}
