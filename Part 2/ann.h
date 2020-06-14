@@ -15,6 +15,7 @@ class ann{
 		ann();
 		~ann();
 		void set_input(std::vector<double>);
+		void set_target(double);
 };
 
 #endif
