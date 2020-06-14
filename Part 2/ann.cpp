@@ -33,9 +33,18 @@ void ann::find_product_sum(){
 	double p_sum = 0.0;
 	for(size_t b = 0; b < 2; b++){
 		for(size_t c = 0; c < 3; c++){
-			p_sum += this->weights[b][c] + this->nodes[c];
+			p_sum += this->weights[b][c] * this->nodes[c];
 		}
 		product_sum.push_back(p_sum);
 		p_sum = 0.0;
 	}
+	
+	for(size_t d = 0; d < 2; d++){
+		product_sum[d] = product_sum[d] + bias[d];
+	}
+}
+
+//signoid function
+double ann::signoid(double d){
+	return (1/(1+exp(d*(-1))));
 }
