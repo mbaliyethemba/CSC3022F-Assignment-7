@@ -8,7 +8,12 @@ ann::ann(){
 ann::~ann(){
 }
 
-//set input
-void ann::set_input(std::vector<double> v){
-	this->inputs = v;
+//set ann nodes
+void ann::set_nodes(std::vector<double> x){
+	this->nodes = x;
+}
+
+//set expected output
+void ann::set_target(double y){
+	this->y = y;
 }
