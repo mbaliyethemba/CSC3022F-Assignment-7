@@ -9,13 +9,15 @@
 
 class ann{
 	private:
-		std::vector<double> inputs;
+		std::vector<double> nodes;
+		double y;
 		
 	public:
 		ann();
 		~ann();
-		void set_input(std::vector<double>);
+		void set_nodes(std::vector<double>);
 		void set_target(double);
+		void set_bias(std::vector<double>);
 };
 
 #endif
