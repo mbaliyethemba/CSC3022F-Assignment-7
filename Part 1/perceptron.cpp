@@ -13,6 +13,11 @@ void perceptron::set_input(std::vector<std::vector<int>> v){
 	this->input = v;
 }
 
+//set x inputs
+void perceptron::set_x_inputs(std::vector<int> v){
+	this->x_inputs = v;
+}
+
 //set target
 void perceptron::set_target(std::vector<int> v){
 	this->target = v;
@@ -71,6 +76,7 @@ void perceptron::or_activation_func(){
 		}
 	}
 }
+
 void perceptron::perceptron_rule(){
 	this->activation_function();
 	for(size_t i = 0; i < this->weights.size(); i++){
