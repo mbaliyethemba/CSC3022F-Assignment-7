@@ -75,7 +75,7 @@ double ann::hidden_product_sum(){
 	for(size_t h = 0; h < 2; h++){
 		hps += this->outputs[h] * this->hidden_weights[h];
 	}
-	hps = hps - b;
+	hps = hps + b;
 	this->hidden_sum = hps;
 	return hps;
 }
@@ -87,6 +87,11 @@ void ann::get_hidden_output(){
 	std::cout << hidden_output << std::endl;
 }
 
+//mean squared error
+void ann::get_mean_sqrd_err(){
+	this->mean_sqrd_err = ((y-hidden_output)*(y-hidden_output))/2.0;
+}
+
 //print to file
 void ann::to_file(){
 	std::ofstream outfile;
@@ -96,6 +101,9 @@ void ann::to_file(){
 		for(size_t g = 0 ; g < this->outputs.size(); g++){
 			outfile << "neuron output " << g+1 << " : " << this->outputs[g] << std::endl;
 		}
-		outfile << "**********************" << std::endl;
+		outfile << "**************************" << std::endl;
+		outfile << "Question 4:" << std::endl;
+		outfile << "output neuron : " << hidden_output << std::endl;
+		outfile << "**************************" << std::endl;
 	}
 }
