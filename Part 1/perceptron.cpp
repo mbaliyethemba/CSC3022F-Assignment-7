@@ -29,7 +29,7 @@ void perceptron::set_learning_rate(double d){
 }
 
 //set the weights
-void perceptron::set_weight(std::vector<int> v){
+void perceptron::set_weight(std::vector<double> v){
 	this->weights = v;
 }
 
@@ -74,6 +74,15 @@ void perceptron::or_activation_func(){
 			num = 1;
 			this->or_output.push_back(num);
 		}
+	}
+}
+
+void perceptron::or_perceptron_rule(){
+	this->activation_function();
+	for(size_t i = 0; i < this->weights.size(); i++){
+		for(size_t j = 0; j < 4; j++){
+			this->weights[i] += this->learning_rate*(this->target[j] - this->output[j]) * this->input[i][j];
+			}
 	}
 }
 
