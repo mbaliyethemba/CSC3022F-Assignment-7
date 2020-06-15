@@ -29,5 +29,6 @@ class perceptron{
 		void to_string();
 		void find_error();
 		void or_activation_func();
+		void and_perceptron_rule();
 };
 #endif
