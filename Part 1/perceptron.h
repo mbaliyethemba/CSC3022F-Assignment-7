@@ -13,7 +13,7 @@ class perceptron{
 		std::vector<int> weights;
 		std::vector<double> product;
 		double learning_rate;
-		std::vector<int> output;
+		std::vector<int> output, and_output;
 		
 	public:
 		perceptron();
@@ -27,5 +27,6 @@ class perceptron{
 		void perceptron_rule();
 		void to_string();
 		void find_error();
+		void and_activation_func();
 };
 #endif
