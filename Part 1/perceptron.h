@@ -10,15 +10,16 @@ class perceptron{
 	private:
 		std::vector<std::vector<int>> input;
 		std::vector<int> target;
-		std::vector<int> weights;
+		std::vector<int> weights, x_inputs;
 		std::vector<double> product;
 		double learning_rate;
-		std::vector<int> output, and_output;
+		std::vector<int> output, or_output;
 		
 	public:
 		perceptron();
 		~perceptron();
 		void set_input(std::vector<std::vector<int>>);
+		void set_x_inputs(std::vector<int>);
 		void set_target(std::vector<int>);
 		void set_learning_rate(double);
 		void set_weight(std::vector<int>);
@@ -27,6 +28,6 @@ class perceptron{
 		void perceptron_rule();
 		void to_string();
 		void find_error();
-		void and_activation_func();
+		void or_activation_func();
 };
 #endif
