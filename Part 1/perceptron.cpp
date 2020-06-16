@@ -43,6 +43,16 @@ void perceptron::product_sum(){
 	}
 }
 
+//find the product sum for threshold
+void perceptron::a_product_sum(){
+	double product_sum;
+	for(size_t i = 0; i < 4 ; i++){
+		product_sum = this->weights[0] * this->or_output[i] + this->weights[1] * this->nand_output[i];
+		product.push_back(product_sum);
+		product_sum = 0.0;
+	}
+}
+
 //activation function
 void perceptron::activation_function(){
 	this->product_sum();
@@ -82,13 +92,13 @@ void perceptron::nand_activation_func(){
 	this->product_sum();
 	int num;
 	for(size_t i = 0; i < product.size() ; i++){
-		if(product[i] < 1){
-			num = 1;
+		if(product[i] > 1){
+			num = 0;
 			this->nand_output.push_back(num);
 			
 		}
 		else{
-			num = 0;
+			num = 1;
 			this->nand_output.push_back(num);
 		}
 	}
@@ -98,16 +108,16 @@ void perceptron::or_perceptron_rule(){
 	this->or_activation_func();
 	for(size_t i = 0; i < this->weights.size(); i++){
 		for(size_t j = 0; j < 4; j++){
-			this->weights[i] += this->learning_rate*(this->target[j] - this->or_output[j]);
+			this->weights[i] += this->learning_rate*(this->target[j] - this->or_output[j])* this->input[i][j];
 			}
 	}
 }
 
 void perceptron::nand_perceptron_rule(){
-	this->or_activation_func();
+	this->nand_activation_func();
 	for(size_t i = 0; i < this->weights.size(); i++){
 		for(size_t j = 0; j < 4; j++){
-			this->weights[i] += this->learning_rate*(this->target[j] - this->nand_output[j]);
+			this->weights[i] += this->learning_rate*(this->target[j] - this->nand_output[j])* this->input[i][j];
 			}
 	}
 }
@@ -133,6 +143,23 @@ void perceptron::to_string(){
 		std::cout << this->or_output[i] << " ";
 	}
 	std::cout << this->or_output[3] << std::endl;
+	
+	std::cout << "Weights :" << std::endl;
+	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
+}
+
+void perceptron::nand_to_string(){
+	std::cout << "Target :" << std::endl;
+	for(size_t i = 0; i < 3; i++){
+		std::cout << this->target[i] << " ";
+	}
+	std::cout << this->target[3] << std::endl;
+	
+	std::cout << "Output :" << std::endl;
+	for(size_t i = 0; i < 3; i++){
+		std::cout << this->nand_output[i] << " ";
+	}
+	std::cout << this->nand_output[3] << std::endl;
 	
 	std::cout << "Weights :" << std::endl;
 	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
