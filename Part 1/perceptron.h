@@ -13,7 +13,7 @@ class perceptron{
 		std::vector<double> weights;
 		std::vector<double> product;
 		double learning_rate;
-		std::vector<int> output, or_output, nand_output;
+		std::vector<int> output, or_output, nand_output, and_output;
 		
 	public:
 		perceptron();
@@ -35,5 +35,6 @@ class perceptron{
 		void nand_perceptron_rule();
 		void nand_to_string();
 		void and_activation_func();
+		void and_perceptron_rule();
 };
 #endif
