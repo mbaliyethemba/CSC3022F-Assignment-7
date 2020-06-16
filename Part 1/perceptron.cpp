@@ -104,6 +104,23 @@ void perceptron::nand_activation_func(){
 	}
 }
 
+//and activation function
+void perceptron::and_activation_func(){
+	this->a_product_sum();
+	int num;
+	for(size_t i = 0; i < product.size() ; i++){
+		if(product[i] < 2){
+			num = 0;
+			this->and_output.push_back(num);
+			
+		}
+		else{
+			num = 1;
+			this->and_output.push_back(num);
+		}
+	}
+}
+
 void perceptron::or_perceptron_rule(){
 	this->or_activation_func();
 	for(size_t i = 0; i < this->weights.size(); i++){
