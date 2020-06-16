@@ -24,6 +24,7 @@ class perceptron{
 		void set_learning_rate(double);
 		void set_weight(std::vector<double>);
 		void product_sum();
+		void a_product_sum();
 		void activation_function();
 		void perceptron_rule();
 		void to_string();
@@ -32,5 +33,6 @@ class perceptron{
 		void or_perceptron_rule();
 		void nand_activation_func();
 		void nand_perceptron_rule();
+		void nand_to_string();
 };
 #endif
