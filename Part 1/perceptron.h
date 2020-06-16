@@ -34,5 +34,6 @@ class perceptron{
 		void nand_activation_func();
 		void nand_perceptron_rule();
 		void nand_to_string();
+		void and_activation_func();
 };
 #endif
