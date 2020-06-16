@@ -139,6 +139,15 @@ void perceptron::nand_perceptron_rule(){
 	}
 }
 
+void perceptron::and_perceptron_rule(){
+	this->and_activation_func();
+	for(size_t i = 0; i < this->weights.size(); i++){
+		for(size_t j = 0; j < 4; j++){
+			this->weights[i] += this->learning_rate*(this->target[j] - this->nand_output[j])* this->input[i][j];
+			}
+	}
+}
+
 void perceptron::perceptron_rule(){
 	this->activation_function();
 	for(size_t i = 0; i < this->weights.size(); i++){
