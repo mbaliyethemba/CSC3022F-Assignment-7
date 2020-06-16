@@ -77,8 +77,25 @@ void perceptron::or_activation_func(){
 	}
 }
 
+//nand activation function
+void perceptron::nand_activation_func(){
+	this->product_sum();
+	int num;
+	for(size_t i = 0; i < product.size() ; i++){
+		if(product[i] < 1){
+			num = 1;
+			this->or_output.push_back(num);
+			
+		}
+		else{
+			num = 0;
+			this->or_output.push_back(num);
+		}
+	}
+}
+
 void perceptron::or_perceptron_rule(){
-	this->activation_function();
+	this->or_activation_func();
 	for(size_t i = 0; i < this->weights.size(); i++){
 		for(size_t j = 0; j < 4; j++){
 			this->weights[i] += this->learning_rate*(this->target[j] - this->output[j]) * this->input[i][j];
