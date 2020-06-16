@@ -84,12 +84,12 @@ void perceptron::nand_activation_func(){
 	for(size_t i = 0; i < product.size() ; i++){
 		if(product[i] < 1){
 			num = 1;
-			this->or_output.push_back(num);
+			this->nand_output.push_back(num);
 			
 		}
 		else{
 			num = 0;
-			this->or_output.push_back(num);
+			this->nand_output.push_back(num);
 		}
 	}
 }
@@ -98,7 +98,16 @@ void perceptron::or_perceptron_rule(){
 	this->or_activation_func();
 	for(size_t i = 0; i < this->weights.size(); i++){
 		for(size_t j = 0; j < 4; j++){
-			this->weights[i] += this->learning_rate*(this->target[j] - this->output[j]) * this->input[i][j];
+			this->weights[i] += this->learning_rate*(this->target[j] - this->or_output[j]);
+			}
+	}
+}
+
+void perceptron::nand_perceptron_rule(){
+	this->or_activation_func();
+	for(size_t i = 0; i < this->weights.size(); i++){
+		for(size_t j = 0; j < 4; j++){
+			this->weights[i] += this->learning_rate*(this->target[j] - this->nand_output[j]);
 			}
 	}
 }
@@ -121,9 +130,9 @@ void perceptron::to_string(){
 	
 	std::cout << "Output :" << std::endl;
 	for(size_t i = 0; i < 3; i++){
-		std::cout << this->output[i] << " ";
+		std::cout << this->or_output[i] << " ";
 	}
-	std::cout << this->output[3] << std::endl;
+	std::cout << this->or_output[3] << std::endl;
 	
 	std::cout << "Weights :" << std::endl;
 	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
