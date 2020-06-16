@@ -31,5 +31,6 @@ class perceptron{
 		void or_activation_func();
 		void or_perceptron_rule();
 		void nand_activation_func();
+		void nand_perceptron_rule();
 };
 #endif
