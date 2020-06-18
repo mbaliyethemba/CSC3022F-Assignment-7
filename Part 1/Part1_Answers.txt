@@ -1,0 +1,38 @@
+Question 1:
+The XOR problem are solved using either 3 or 4 perceptrons. The first using the OR, NAND, AND boolean logic gates. The second using 4 connected NAND gates.
+
+Question 2:
+In the case of all 3 perceptron working in the order (Input 1 OR Input 2) AND (Input 1 NAND Input 2) to give the XOR solution.
+OR perceptron:
+Input 1|Input 2|Target Output
+   0   |   0   |     0
+   0   |   1   |     1
+   1   |   0   |     1
+   1   |   1   |     1
+
+NAND perceptron:
+Input 1|Input 2|Target Output
+   0   |   0   |     1
+   0   |   1   |     1
+   1   |   0   |     1
+   1   |   1   |     0
+
+AND perceptron:
+Input 1|Input 2|Target Output
+   0   |   0   |     0
+   0   |   1   |     0
+   1   |   0   |     0
+   1   |   1   |     1
+
+XOR(OR, NAND, AND) perceptron:
+Input 1|Input 2|Target Output
+   0   |   0   |     0
+   0   |   1   |     1
+   1   |   0   |     1
+   1   |   1   |     0
+
+Input 1|Input 2|Input 1 OR Input 2|Input 1 NAND Input 2|(Input 1 OR Input 2) AND (Input 1 NAND Input 2)|
+   0   |   0   |        0         |         1          |                     0  		       |
+   0   |   1   |        1         |         1          |                     1			       |
+   1   |   0   |        1         |         1          |                     1			       |
+   1   |   1   |        1         |         0          |                     0			       |
