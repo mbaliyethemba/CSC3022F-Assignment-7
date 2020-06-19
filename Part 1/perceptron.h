@@ -36,5 +36,6 @@ class perceptron{
 		void and_activation_func();
 		void and_perceptron_rule();
 		void or_to_string();
+		void nand_to_string();
 };
 #endif
