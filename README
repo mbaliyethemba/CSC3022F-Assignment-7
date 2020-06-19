@@ -1,0 +1,28 @@
+#Assignment 6
+#Mbaliyethemba Shangase
+#1 June 2020
+#SHNMBA004
+
+Files:
+	Part1/perceptron.h
+	Part1/perceptron.cpp - create the perceptron rule for the xor problem
+	Part1/drriver.cpp - user interface for the perceptron class
+	Part1/Part1_answers.txt - holds the answers to part 1
+	Part1/makefile
+	Part2/ann.h
+	Part2/ann.cpp - creates the artificial neural network
+	Part2/driver.cpp - user interface for the ann
+	Part2/part2_answers.txt - holds answers to part 2
+	Part2/makefile
+	
+Instructions
+
+	1.Navigate to the project root directory.
+	2.Navigate to the Part1 directory
+	3.Run make to build the executable, driver.
+	4.Run make run to run the executable.
+	5.Run make clean to delete any artifacts created when compiling & running the program.
+	6.Navigate to the Part2 directory
+	7.Run make to build the executable, driver.
+	8.Run make run to run the executable.
+	9.Run make clean to delete any artifacts created when compiling & running the program.
