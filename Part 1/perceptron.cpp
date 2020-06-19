@@ -1,12 +1,7 @@
 #include "perceptron.h"
 
 //Constructor
-perceptron::perceptron(std::vector<int> in1, std::vector<int> in2, std::vector<int> t, double lr, std::vector<double> w){
-	this->input1 = in1;
-	this->input2 = in2;
-	this->target = t;
-	this->learning_rate = lr;
-	this->weights = w;
+perceptron::perceptron(){
 }
 
 //Destructor
@@ -16,6 +11,11 @@ perceptron::~perceptron(){
 //Set the inputs
 void perceptron::set_input(std::vector<std::vector<int>> v){
 	this->input = v;
+}
+
+//set x inputs
+void perceptron::set_x_inputs(std::vector<int> v){
+	this->x_inputs = v;
 }
 
 //set target
@@ -106,10 +106,10 @@ void perceptron::nand_activation_func(){
 
 //and activation function
 void perceptron::and_activation_func(){
-	this->a_product_sum();
+	this->product_sum();
 	int num;
 	for(size_t i = 0; i < product.size() ; i++){
-		if(this->a_prod[i] < 2){
+		if(product[i] < 2){
 			num = 0;
 			this->and_output.push_back(num);
 			
@@ -154,6 +154,15 @@ void perceptron::perceptron_rule(){
 	this->and_perceptron_rule();
 }
 
+//Printing the or gate
+void perceptron::or_to_string(){
+	std::cout << "Training the OR perceptron" << std::endl;
+	std::cout << "Input1 " << "Input2 " << "Output" << std::endl;
+	std::cout << this->input[0][0] << "       " << this->input[1][0] << "       "<< or_output[0] << std::endl;
+	std::cout << this->input[0][1] << "       " << this->input[1][1] << "       "<< or_output[1] << std::endl;
+	std::cout << this->input[0][2] << "       " << this->input[1][2] << "       "<< or_output[2] << std::endl;
+	std::cout << this->input[0][3] << "       " << this->input[1][3] << "       "<< or_output[3] << std::endl;
+}
 void perceptron::to_string(){
 	std::cout << "solving the XOR problem" << std::endl;
 	std::cout << "Training the OR perceptron" << std::endl;
