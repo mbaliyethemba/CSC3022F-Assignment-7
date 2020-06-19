@@ -158,20 +158,30 @@ void perceptron::perceptron_rule(){
 void perceptron::or_to_string(){
 	std::cout << "Training the OR perceptron" << std::endl;
 	std::cout << "Input1 " << "Input2 " << "Output" << std::endl;
-	std::cout << this->input[0][0] << "       " << this->input[1][0] << "       "<< or_output[0] << std::endl;
-	std::cout << this->input[0][1] << "       " << this->input[1][1] << "       "<< or_output[1] << std::endl;
-	std::cout << this->input[0][2] << "       " << this->input[1][2] << "       "<< or_output[2] << std::endl;
-	std::cout << this->input[0][3] << "       " << this->input[1][3] << "       "<< or_output[3] << std::endl;
+	std::cout << this->input[0][0] << "       " << this->input[0][1] << "       "<< or_output[0] << std::endl;
+	std::cout << this->input[1][0] << "       " << this->input[1][1] << "       "<< or_output[1] << std::endl;
+	std::cout << this->input[2][0] << "       " << this->input[2][1] << "       "<< or_output[2] << std::endl;
+	std::cout << this->input[3][0] << "       " << this->input[3][1] << "       "<< or_output[3] << std::endl;
 }
 
 //printing nand gate
 void perceptron::nand_to_string(){
-	std::cout << "Training the OR perceptron" << std::endl;
+	std::cout << "Training the NAND perceptron" << std::endl;
 	std::cout << "Input1 " << "Input2 " << "Output" << std::endl;
-	std::cout << this->input[0][0] << "       " << this->input[1][0] << "       "<< nand_output[0] << std::endl;
-	std::cout << this->input[0][1] << "       " << this->input[1][1] << "       "<< nand_output[1] << std::endl;
-	std::cout << this->input[0][2] << "       " << this->input[1][2] << "       "<< nand_output[2] << std::endl;
-	std::cout << this->input[0][3] << "       " << this->input[1][3] << "       "<< nand_output[3] << std::endl;
+	std::cout << this->input[0][0] << "       " << this->input[0][1] << "       "<< nand_output[0] << std::endl;
+	std::cout << this->input[1][0] << "       " << this->input[1][1] << "       "<< nand_output[1] << std::endl;
+	std::cout << this->input[2][0] << "       " << this->input[2][1] << "       "<< nand_output[2] << std::endl;
+	std::cout << this->input[3][0] << "       " << this->input[3][1] << "       "<< nand_output[3] << std::endl;
+}
+
+//printing and gate
+void perceptron::and_to_string(){
+	std::cout << "Training the NAND perceptron" << std::endl;
+	std::cout << "Input1 " << "Input2 " << "Output" << std::endl;
+	std::cout << this->input[0][0] << "       " << this->input[0][1] << "       "<< and_output[0] << std::endl;
+	std::cout << this->input[1][0] << "       " << this->input[1][1] << "       "<< and_output[1] << std::endl;
+	std::cout << this->input[2][0] << "       " << this->input[2][1] << "       "<< and_output[2] << std::endl;
+	std::cout << this->input[3][0] << "       " << this->input[3][1] << "       "<< and_output[3] << std::endl;
 }
 
 void perceptron::to_string(){
