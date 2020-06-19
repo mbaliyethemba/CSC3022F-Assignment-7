@@ -1,7 +1,12 @@
 #include "perceptron.h"
 
 //Constructor
-perceptron::perceptron(){
+perceptron::perceptron(std::vector<int> in1, std::vector<int> in2, std::vector<int> t, double lr, std::vector<double> w){
+	this->input1 = in1;
+	this->input2 = in2;
+	this->target = t;
+	this->learning_rate = lr;
+	this->weights = w;
 }
 
 //Destructor
@@ -11,11 +16,6 @@ perceptron::~perceptron(){
 //Set the inputs
 void perceptron::set_input(std::vector<std::vector<int>> v){
 	this->input = v;
-}
-
-//set x inputs
-void perceptron::set_x_inputs(std::vector<int> v){
-	this->x_inputs = v;
 }
 
 //set target
@@ -48,7 +48,7 @@ void perceptron::a_product_sum(){
 	double product_sum;
 	for(size_t i = 0; i < 4 ; i++){
 		product_sum = this->weights[0] * this->or_output[i] + this->weights[1] * this->nand_output[i];
-		product.push_back(product_sum);
+		a_prod.push_back(product_sum);
 		product_sum = 0.0;
 	}
 }
@@ -109,7 +109,7 @@ void perceptron::and_activation_func(){
 	this->a_product_sum();
 	int num;
 	for(size_t i = 0; i < product.size() ; i++){
-		if(product[i] < 2){
+		if(this->a_prod[i] < 2){
 			num = 0;
 			this->and_output.push_back(num);
 			
@@ -143,21 +143,20 @@ void perceptron::and_perceptron_rule(){
 	this->and_activation_func();
 	for(size_t i = 0; i < this->weights.size(); i++){
 		for(size_t j = 0; j < 4; j++){
-			this->weights[i] += this->learning_rate*(this->target[j] - this->nand_output[j])* this->input[i][j];
+			this->weights[i] += this->learning_rate*(this->target[j] - this->and_output[j])* this->input[i][j];
 			}
 	}
 }
 
 void perceptron::perceptron_rule(){
-	this->activation_function();
-	for(size_t i = 0; i < this->weights.size(); i++){
-		for(size_t j = 0; j < 4; j++){
-			this->weights[i] = this->weights[i] + this->learning_rate*(this->target[j] - this->output[j]) * this->input[i][j];
-			}
-	}
+	this->or_perceptron_rule();
+	this->nand_perceptron_rule();
+	this->and_perceptron_rule();
 }
 
 void perceptron::to_string(){
+	std::cout << "solving the XOR problem" << std::endl;
+	std::cout << "Training the OR perceptron" << std::endl;
 	std::cout << "Target :" << std::endl;
 	for(size_t i = 0; i < 3; i++){
 		std::cout << this->target[i] << " ";
@@ -172,9 +171,8 @@ void perceptron::to_string(){
 	
 	std::cout << "Weights :" << std::endl;
 	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
-}
-
-void perceptron::nand_to_string(){
+	
+	std::cout << "Training the NAND perceptron" << std::endl;
 	std::cout << "Target :" << std::endl;
 	for(size_t i = 0; i < 3; i++){
 		std::cout << this->target[i] << " ";
@@ -189,11 +187,27 @@ void perceptron::nand_to_string(){
 	
 	std::cout << "Weights :" << std::endl;
 	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
+	
+	std::cout << "Training the AND perceptron" << std::endl;
+	std::cout << "Target :" << std::endl;
+	for(size_t i = 0; i < 3; i++){
+		std::cout << this->target[i] << " ";
+	}
+	std::cout << this->target[3] << std::endl;
+	
+	std::cout << "Output :" << std::endl;
+	for(size_t i = 0; i < 3; i++){
+		std::cout << this->and_output[i] << " ";
+	}
+	std::cout << this->and_output[3] << std::endl;
+	
+	std::cout << "Weights :" << std::endl;
+	std::cout << this->weights[0] << " " << this->weights[1] << std::endl;
 }
 
 //function to find the error
 void perceptron::find_error(){
-	if(this->target == this->output){
+	if(this->target == this->and_output){
 		this->to_string();
 	}
 	else{
