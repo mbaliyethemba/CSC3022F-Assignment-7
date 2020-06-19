@@ -163,6 +163,17 @@ void perceptron::or_to_string(){
 	std::cout << this->input[0][2] << "       " << this->input[1][2] << "       "<< or_output[2] << std::endl;
 	std::cout << this->input[0][3] << "       " << this->input[1][3] << "       "<< or_output[3] << std::endl;
 }
+
+//printing nand gate
+void perceptron::nand_to_string(){
+	std::cout << "Training the OR perceptron" << std::endl;
+	std::cout << "Input1 " << "Input2 " << "Output" << std::endl;
+	std::cout << this->input[0][0] << "       " << this->input[1][0] << "       "<< nand_output[0] << std::endl;
+	std::cout << this->input[0][1] << "       " << this->input[1][1] << "       "<< nand_output[1] << std::endl;
+	std::cout << this->input[0][2] << "       " << this->input[1][2] << "       "<< nand_output[2] << std::endl;
+	std::cout << this->input[0][3] << "       " << this->input[1][3] << "       "<< nand_output[3] << std::endl;
+}
+
 void perceptron::to_string(){
 	std::cout << "solving the XOR problem" << std::endl;
 	std::cout << "Training the OR perceptron" << std::endl;
