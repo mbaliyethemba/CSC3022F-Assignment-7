@@ -9,14 +9,14 @@
 class perceptron{
 	private:
 		std::vector<std::vector<int>> input;
-		std::vector<int> target, x_inputs;
+		std::vector<int> target, input1, input2;
 		std::vector<double> weights;
-		std::vector<double> product;
+		std::vector<double> product, a_prod;
 		double learning_rate;
 		std::vector<int> output, or_output, nand_output, and_output;
 		
 	public:
-		perceptron();
+		perceptron(std::vector<int>,std::vector<int>,std::vector<int>,double,std::vector<double>);
 		~perceptron();
 		void set_input(std::vector<std::vector<int>>);
 		void set_x_inputs(std::vector<int>);
@@ -33,7 +33,6 @@ class perceptron{
 		void or_perceptron_rule();
 		void nand_activation_func();
 		void nand_perceptron_rule();
-		void nand_to_string();
 		void and_activation_func();
 		void and_perceptron_rule();
 };
